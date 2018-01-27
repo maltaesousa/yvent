@@ -22,6 +22,8 @@ composer install
 
 ## Populate the database
 
+Copy paste 
+
 ```
 createdb -U postgres test
 psql -U postgres -d test -f prepare.sql
@@ -30,13 +32,15 @@ pg_restore -U postgres -d test yvent.dump
 
 ## Last steps
 
-L'application a besoin d'une clé pour fonctionner:
+The app needs a key in order to work properly:
 
 ```
 php artisan key:generate
+cp .env.example .env
 ```
-Renommer le fichier .env.example en .env
-Ajouter dans le fichier .env la clé générée à l'endroit prévu. Par exemple:
+
+Add in the .env file the key you just generated, for example:
+
 APP_KEY=base64:jblablalalalkdlkakdlklkakdlklalkldklkalk=
 
 ## Run the app
