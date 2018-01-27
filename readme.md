@@ -1,4 +1,4 @@
-# YVENT
+# 📅 YVENT
 
 ## Requirements
 
@@ -47,7 +47,6 @@ php artisan serve
 Logon with:
 
 > User: masrad
-
 > Pwd: masrad
 
 ## Troubleshooting
