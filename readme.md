@@ -17,6 +17,7 @@ git clone https://github.com/maltaesousa/yvent.git yvent
 Install the app:
 
 ```
+cd yvent
 composer install
 ```
 
