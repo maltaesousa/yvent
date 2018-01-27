@@ -68,29 +68,6 @@ class CommunesSeeder extends Seeder
             'name_plural' => 'Chantiers'
         ]);
         
-        // slottypes (added)
-        DB::table('slottypes')->insert([
-            'name' => 'Dispositif 1'
-        ]);
-        DB::table('slottypes')->insert([
-            'name' => 'Dispositif 2'
-        ]);
-        DB::table('slottypes')->insert([
-            'name' => 'Dispositif 3'
-        ]);
-        DB::table('slottypes')->insert([
-            'name' => 'Études préliminaires'
-        ]);
-        DB::table('slottypes')->insert([
-            'name' => 'Étude du projet'
-        ]);
-        DB::table('slottypes')->insert([
-            'name' => 'Appel d\'offres'
-        ]);
-        DB::table('slottypes')->insert([
-            'name' => 'Réalisation'
-        ]);
-        
         // services (added)
         DB::table('services')->insert([
             'name' => 'PNV Opérationnel'
@@ -108,9 +85,11 @@ class CommunesSeeder extends Seeder
             'name' => 'STE'
         ]);
         DB::table('services')->insert([
-            'name' => 'URBAT'
+            'name' => 'URB'
         ]);
-        
+        DB::table('services')->insert([
+            'name' => 'BAT'
+        ]);
         // status (added)
         DB::table('status')->insert([
             'name' => 'Projet',
