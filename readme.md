@@ -46,5 +46,10 @@ php artisan serve
 
 Logon with:
 
-> masrad
-> masrad
+> User: masrad
+
+> Pwd: masrad
+
+## Troubleshooting
+
+Be sure Composer is using the right PHP (at least PHP 7.0)
