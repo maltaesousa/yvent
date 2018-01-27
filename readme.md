@@ -3,7 +3,7 @@
 ## Requirements
 
   * PHP 7
-  * Composer
+  * Composer (when installing it, choose PHP 7.0 or higher when prompted for executable path!)
   * Postgresql 9.6
 
 ## Getting started
@@ -53,3 +53,7 @@ Logon with:
 ## Troubleshooting
 
 Be sure Composer is using the right PHP (at least PHP 7.0)
+
+In Windows, if you get PDO exception on attempt to login, you're probably not using postgres driver for PHP.
+You should uncomment the line containing `php_pdo_pgsql.dll` in the php.ini file.
+To find where is php.ini file you can type `where php` on cmd or `which php` on powershell.
