@@ -23,10 +23,6 @@ composer install
 
 ## Populate the database
 
-Download the yvent.dump.zip file:
-
-Unzip at the root of the folder you cloned.
-
 ```
 createdb -U postgres test
 psql -U postgres -d test -f prepare.sql
