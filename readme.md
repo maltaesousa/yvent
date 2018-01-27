@@ -2,9 +2,9 @@
 
 ## Requirements
 
-PHP 7
-Composer
-Postgresql 9.6
+  * PHP 7
+  * Composer
+  * Postgresql 9.6
 
 ## Getting started
 
