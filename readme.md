@@ -34,7 +34,7 @@ pg_restore -U postgres -d test lv_yvent.dump
 The app needs a key in order to work properly:
 
 ```
-cp .env.example .env
+copy .env.example .env
 php artisan key:generate
 ```
 
