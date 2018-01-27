@@ -73,10 +73,10 @@ class CreateEventsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('slots');
-        Schema::drop('slottypes');
-        Schema::drop('events');
-        Schema::drop('status');
-        Schema::drop('services');
+        Schema::dropIfExists('slots');
+        Schema::dropIfExists('slottypes');
+        Schema::dropIfExists('events');
+        Schema::dropIfExists('status');
+        Schema::dropIfExists('services');
     }
 }
