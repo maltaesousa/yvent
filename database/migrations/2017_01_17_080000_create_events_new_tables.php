@@ -68,9 +68,6 @@ class CreateEventsNewTables extends Migration
             $table->integer('eventtype_id')->default(2);
             $table->foreign('eventtype_id')->references('id')->on('eventtypes')->onDelete('cascade');
         });
-        Schema::table('slottypes', function (Blueprint $table) {
-            $table->integer('type')->default(1);
-        });
     }
 
     /**

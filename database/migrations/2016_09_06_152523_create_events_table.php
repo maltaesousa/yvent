@@ -33,6 +33,10 @@ class CreateEventsTable extends Migration
             // $table->timestamp('start_time');
             // $table->timestamp('end_time')->nullable();
             $table->timestamps();
+            $table->string('aggloy')->nullable();
+            $table->string('aggloy4')->nullable();
+            $table->string('aggloy_name')->nullable();
+            $table->integer('aggloy_amount')->nullable();
             $table->string('organisation',100)->nullable();
             $table->string('contact_name',100)->nullable();
             $table->string('contact_phone',20)->nullable();
@@ -52,6 +56,13 @@ class CreateEventsTable extends Migration
         Schema::create('slottypes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 20);
+            $table->integer('type')->default(1);
+            $table->boolean('inverse_colors')->nullable();
+            $table->boolean('visible')->nullable();
+            $table->boolean('color1')->nullable();
+            $table->boolean('color2')->nullable();
+            $table->boolean('color3')->nullable();
+            $table->string('label')->nullable();
         });
         Schema::create('slots', function (Blueprint $table) {
             $table->increments('id');
