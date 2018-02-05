@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 use App\Http\Requests;
 
@@ -156,16 +157,26 @@ class SlotController extends Controller
         return redirect('events/' . $event->id . '/edit');
     }
     
+    /**
+     * Fetches the slots from database and performs some fomatting.
+     * 
+     * @param  \Illuminate\Http\Request  $eventtype
+     * @return \Illuminate\Http\Response
+     */
     public function api2($eventtype)
     {
-        $slots = Slot::whereHas('event',function($query) use ($eventtype) {
+        $query = Slot::whereHas('event',function($query) use ($eventtype) {
             $query->whereHas('eventtype',function($query) use ($eventtype) {
                 $query->where('id','=',$eventtype);
             });
         })->whereHas('slottype',function($query) {
                     $query->where('visible','=',true);
-        })->orderBy('start_time')->get();
-        
+        })->orderBy('start_time');
+
+        Log::info(get_class($this) . ' : QUERY SENT TO DB WITH EVENTYPE ID : ' . $eventtype);
+        $slots = $query->get();
+        Log::info(get_class($this) . ' : DATA FETCHED FROM DB');
+
         foreach($slots as $slot)
         {
             $slot->title = ($slot->event->eventtype->label <> '' ? $slot->event->eventtype->label . ' ' : '') 
@@ -181,25 +192,8 @@ class SlotController extends Controller
             $slot->backgroundColor = $slot->color1();
             $slot->borderColor = $slot->color2();
             $slot->textColor = $slot->color3();
-            
-            // Standard
-            // if (!$slot->slottype->inverse_colors) {
-                // $slot->backgroundColor = $slot->event->Status->color1;
-                // $slot->borderColor = $slot->event->Status->color2;
-                // $slot->textColor = $slot->event->Status->color3;
-            // }
-            //  Couleurs négatives (montage, démontage)
-            // else {
-                // $slot->backgroundColor = "#fcfcfc";
-                // $slot->borderColor = $slot->event->Status->color2;
-                // $slot->textColor = $slot->event->Status->color2;
-                // $slot->title = $slot->title . ' - ' . mb_strtoupper($slot->slottype->name);
-            // }
-            // Couleurs définies au niveau du slottype
-            // ($slot->slottype->color1 <> '' ? $slot->backgroundColor = $slot->slottype->color1 : '');
-            // ($slot->slottype->color2 <> '' ? $slot->borderColor = $slot->slottype->color2 : '');
-            // ($slot->slottype->color3 <> '' ? $slot->textColor = $slot->slottype->color3 : '');
         }
+        Log::info(get_class($this) . ' : DATA SENT TO THE VIEW');
         return $slots;
     }
     
