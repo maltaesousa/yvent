@@ -88,13 +88,11 @@
         @foreach(Auth::user()->eventtypesReadable()->pluck('id') as $eventtypeid)
             $('#calendar').fullCalendar('removeEventSource', curSource[{{ $eventtypeid }}]);
         @endforeach
-        $('#calendar').fullCalendar('refetchEvents');
 
         //attach the new eventSources
         @foreach(Auth::user()->eventtypesReadable()->pluck('id') as $eventtypeid)
             $('#calendar').fullCalendar('addEventSource', newSource[{{ $eventtypeid }}]);
         @endforeach
-        $('#calendar').fullCalendar('refetchEvents');
 
         @foreach(Auth::user()->eventtypesReadable()->pluck('id') as $eventtypeid)
             curSource[{{ $eventtypeid }}] = newSource[{{ $eventtypeid }}];
@@ -155,11 +153,7 @@
             aspectRatio: calAspectRatio(),
             eventLimit: true, // allow "more" link when too many events
             
-            eventSources: [
-                @foreach(Auth::user()->eventtypesReadable()->pluck('id') as $eventtypeid)
-                    curSource[{{ $eventtypeid }}],
-                @endforeach
-            ],
+            eventSources: [],
             
             eventMouseover: function(calEvent, jsEvent) {
                 var startDate = calEvent.start.format('ddd DD.MM.YYYY HH:mm');
