@@ -11,10 +11,6 @@
 |
 */
 
-/* Route::get('/', function () {
-    return view('welcome');
-}); */
-
 Auth::routes();
 
 Route::get('register2', 'Auth\Register2Controller@showRegistrationForm');

@@ -31,16 +31,6 @@
     @endforeach
 </div>
 
-<!-- <div class="row">
-    {{ Form::open() }}
-        {{ Form::label('auto', 'Find a color: ') }}
-        {{ Form::text('auto', '', array('id' => 'auto')) }}
-        <br>
-        {{ Form::label('response', 'Our color key: ') }}
-        {{ Form::text('response', '', array('id' => 'response', 'disabled' => 'disabled')) }}
-    {{ Form::close() }}
-</div> -->
-
 <div class="row">
     <div class="col-lg-1">
         <a href="#" data-toggle="popover" title="Calendrier au format ICS (iCal). A copier et utiliser dans Outlook." data-content="{{ url('') }}/ical/{{ Auth::user()->key }}/yvent_{{ Auth::user()->username }}.ics"><img src="{{ url('_asset') }}/ics.png" alt="ICS"></a>
@@ -171,19 +161,6 @@
                 @endforeach
             ],
             
-            // tooltip
-            // eventRender: function(event, element) {
-                // element.qtip({
-                    // content: event.description
-                // });
-            // }
-            
-            // Fullcalendar Event filtering
-            // eventRender: function(event, element) {
-                // element.attr('href', 'javascript:void(0);');
-            // }
-            
-            // tooltip
             eventMouseover: function(calEvent, jsEvent) {
                 var startDate = calEvent.start.format('ddd DD.MM.YYYY HH:mm');
                 var endDate = calEvent.end.format('ddd DD.MM.YYYY HH:mm');
