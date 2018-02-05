@@ -10,3 +10,16 @@ Problèmes rencontrés:
 - chargement total au démarrage de l'application
 - chargement partiel, à chaque mois
 
+web.route
+
+- presentation de la situation actuelle
+
+Schéma avec vue 3 tiers (mvc)
+ Logs
+ Git
+ Framework, code structuré, propre
+
+Qu'est ce que ça amène au niveau de l'industrialisation.
+Delawn et Mclain
+
+La suite... Loguer de manière massive.
