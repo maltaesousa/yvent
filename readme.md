@@ -21,7 +21,7 @@ cd yvent
 composer install
 ```
 
-## Populate the database
+## Populate the database (Only for dev environement)
 
 ```
 createdb -U postgres test
@@ -38,7 +38,14 @@ copy .env.example .env
 php artisan key:generate
 ```
 
-## Run the app
+If your app will run in another endpoint than /yvent, you need to change your custom endpoint in the `/public/.htaccess` file:
+for exemple: www.host.com/custom_yvent
+
+```
+RewriteBase /custom_yvent/
+```
+
+## Run the app (dev)
 
 ```
 php artisan serve
@@ -56,3 +63,5 @@ Be sure Composer is using the right PHP (at least PHP 7.0)
 In Windows, if you get PDO exception on attempt to login, you're probably not using postgres driver for PHP.
 You should uncomment the line containing `php_pdo_pgsql.dll` in the php.ini file.
 To find where is php.ini file you can type `where php` on cmd or `which php` on powershell.
+
+Writing permissions are needed in `/storage` for logger. Without proper permission, the app won't work.
