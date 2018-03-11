@@ -39,7 +39,7 @@ php artisan key:generate
 ```
 
 If your app will run in another endpoint than /yvent, you need to change your custom endpoint in the `/public/.htaccess` file:
-for exemple: www.host.com/custom_yvent
+for example: www.host.com/custom_yvent
 
 ```
 RewriteBase /custom_yvent/
